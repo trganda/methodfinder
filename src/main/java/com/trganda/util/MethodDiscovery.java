@@ -1,5 +1,7 @@
-package com.trganda;
+package com.trganda.util;
 
+import com.trganda.cs.ClassResource;
+import com.trganda.cs.ClassResourceEnumerator;
 import com.trganda.data.ClassReference;
 import com.trganda.data.MethodReference;
 import com.trganda.visitor.MethodVisitor;
@@ -12,9 +14,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MCDiscovery {
+public class MethodDiscovery {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MCDiscovery.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MethodDiscovery.class);
     private final List<ClassReference> discoveredClasses = new ArrayList<>();
     private final List<MethodReference> discoveredMethods = new ArrayList<>();
 

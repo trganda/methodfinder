@@ -1,6 +1,8 @@
 package com.trganda;
 
+import com.trganda.cs.ClassResourceEnumerator;
 import com.trganda.data.MethodReference;
+import com.trganda.util.MethodDiscovery;
 import com.trganda.util.Util;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
@@ -26,7 +28,7 @@ public class Inspector {
     private static final Logger LOGGER = LoggerFactory.getLogger(Inspector.class);
 
     private static void printUsage() {
-        System.out.println("Usage:\n Pass the path of a library, which contain jar, war, or class file.");
+        System.out.println("Usage:\n    Pass the path of a library, which contain jar, war, or class file.");
     }
 
     public static void main(String[] args) throws IOException {
@@ -54,10 +56,10 @@ public class Inspector {
         ClassLoader classLoader = Util.getJarClassLoader(parsedLibPaths);
         ClassResourceEnumerator classResourceEnumerator = new ClassResourceEnumerator(classLoader);
 
-        MCDiscovery mcDiscovery = new MCDiscovery();
-        mcDiscovery.discover(classResourceEnumerator);
+        MethodDiscovery methodDiscovery = new MethodDiscovery();
+        methodDiscovery.discover(classResourceEnumerator);
 
-        for (MethodReference mref : mcDiscovery.getDiscoveredMethods()) {
+        for (MethodReference mref : methodDiscovery.getDiscoveredMethods()) {
             String desc = mref.getDesc();
             Type[] types = Type.getArgumentTypes(desc);
             if (types.length == 2 &&

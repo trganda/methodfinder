@@ -1,4 +1,4 @@
-package com.trganda;
+package com.trganda.cs;
 
 import java.io.IOException;
 import java.io.InputStream;

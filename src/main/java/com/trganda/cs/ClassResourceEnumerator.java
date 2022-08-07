@@ -1,4 +1,4 @@
-package com.trganda;
+package com.trganda.cs;
 
 import com.google.common.reflect.ClassPath;
 
