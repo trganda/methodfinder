@@ -1,14 +1,13 @@
 package com.trganda.data;
 
-
 public class ClassReference {
     private final String name;
     private final String superClass;
     private final String[] interfaces;
     private final boolean isInterface;
-    private final Member[] members;
+    private final FieldReference[] members;
 
-    public ClassReference(String name, String superClass, String[] interfaces, boolean isInterface, Member[] members) {
+    public ClassReference(String name, String superClass, String[] interfaces, boolean isInterface, FieldReference[] members) {
         this.name = name;
         this.superClass = superClass;
         this.interfaces = interfaces;
@@ -32,34 +31,13 @@ public class ClassReference {
         return isInterface;
     }
 
-    public Member[] getMembers() {
+    public FieldReference[] getMembers() {
         return members;
     }
 
-    public static class Member {
-        private final String name;
-        private final int modifiers;
-        private final ClassReference.Handle type;
-
-        public Member(String name, int modifiers, Handle type) {
-            this.name = name;
-            this.modifiers = modifiers;
-            this.type = type;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public int getModifiers() {
-            return modifiers;
-        }
-
-        public Handle getType() {
-            return type;
-        }
-    }
-
+    /**
+     * Reference to a Class with qualified class name.
+     */
     public static class Handle {
         private final String name;
 
